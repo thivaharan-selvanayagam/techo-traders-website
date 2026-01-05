@@ -65,7 +65,7 @@ export default function Home() {
       {/* Section 1: Introduction with Logo centered */}
       <section className="relative min-h-screen px-6 bg-gradient-to-r from-slate-900 to-slate-700 text-white flex flex-col items-center justify-center">
         <div className="absolute top-6 right-6 flex gap-3 text-sm">
-          <button onClick={() => setLang("en")}>EN</button>
+          <button onClick={() => setLang("en")}>English</button>
           <button onClick={() => setLang("ta")}>தமிழ்</button>
           <button onClick={() => setLang("si")}>සිංහල</button>
         </div>
