@@ -1,5 +1,5 @@
 "use client";
-
+import { translations } from "./translations";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
@@ -56,16 +56,26 @@ export default function Home() {
     { name: "Cable Tie 8 inches", image: "/images/components/cable-tie.jpg" },
   ];
 
+  const [lang, setLang] = useState("en");
+  const t = translations[lang];
+
+
   return (
     <main className="font-sans text-gray-800 bg-white [color-scheme:light]">
       {/* Section 1: Introduction with Logo centered */}
       <section className="relative min-h-screen px-6 bg-gradient-to-r from-slate-900 to-slate-700 text-white flex flex-col items-center justify-center">
+        <div className="absolute top-6 right-6 flex gap-3 text-sm">
+          <button onClick={() => setLang("en")}>EN</button>
+          <button onClick={() => setLang("ta")}>தமிழ்</button>
+          <button onClick={() => setLang("si")}>සිංහල</button>
+        </div>
+
         <div className="mb-6">
           <Image src="/images/logo.png" alt="Techo Traders Logo" width={150} height={75} />
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">TECHO TRADERS</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">{t.brand}</h1>
         <p className="text-lg md:text-xl max-w-3xl text-center">
-          We design, build, and supply high-performance Yagi antennas and antenna components for strong, stable wireless connectivity.
+          {t.heroText}
         </p>
       </section>
 
@@ -74,12 +84,12 @@ export default function Home() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <Slideshow images={yagiImages} />
           <div>
-            <h2 className="text-3xl font-semibold mb-4">Yagi Antenna</h2>
+            <h2 className="text-3xl font-semibold mb-4">{t.yagiTitle}</h2>
             <p className="mb-6">
-              Our Yagi antennas are designed for long-range signal reception and transmission. Ideal for routers, modems, and wireless links, they offer high gain, directional focus, and durable outdoor performance.
+              {t.yagiDesc}
             </p>
             <a href={whatsappLink("I want to buy a Yagi Antenna")} className="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl shadow">
-              Buy via WhatsApp
+              {t.orderNow}
             </a>
           </div>
         </div>
@@ -92,12 +102,12 @@ export default function Home() {
             <Slideshow images={diskYagiImages} />
           </div>
           <div className="md:order-1">
-            <h2 className="text-3xl font-semibold mb-4">Disk Yagi Antenna</h2>
+            <h2 className="text-3xl font-semibold mb-4">{t.diskTitle}</h2>
             <p className="mb-6">
-              Disk Yagi antennas provide enhanced gain with compact design. They are suitable for high-frequency applications and offer excellent signal stability in challenging environments.
+              {t.diskDesc}
             </p>
             <a href={whatsappLink("I want to buy a Disk Yagi Antenna")} className="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl shadow">
-              Buy via WhatsApp
+              {t.orderNow}
             </a>
           </div>
         </div>
@@ -114,7 +124,7 @@ export default function Home() {
       {/* Section 5: Components with Images */}
       <section className="py-16 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-semibold mb-10 text-center">Build Your Perfect Antenna with High-Quality Components</h2>
+          <h2 className="text-3xl font-semibold mb-10 text-center">{t.componentsTitle}</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
             {components.map((item) => (
               <a key={item.name} href={whatsappLink(`I want to buy the component: ${item.name}`)} className="bg-white rounded-2xl shadow hover:shadow-lg transition p-4 text-center">
@@ -130,8 +140,8 @@ export default function Home() {
 
       {/* Section 6: CTA */}
       <section className="py-16 px-6 bg-slate-800 text-white text-center">
-        <h2 className="text-3xl font-semibold mb-4">Need Custom Antennas or Bulk Orders?</h2>
-        <p className="mb-6">Chat with us on WhatsApp and get expert guidance.</p>
+        <h2 className="text-3xl font-semibold mb-4">{t.ctaTitle}</h2>
+        <p className="mb-6">{t.ctaDesc}</p>
         <a href={whatsappLink("Hello Techo Traders, I need more information")} className="inline-block bg-green-600 hover:bg-green-700 px-8 py-3 rounded-xl shadow">
           Contact Us on WhatsApp
         </a>
@@ -139,7 +149,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-10 px-6 bg-gray-900 text-gray-300 text-center">
-        <p className="mb-4">© {new Date().getFullYear()} Techo Traders. All rights reserved.</p>
+        <p className="mb-4">© {new Date().getFullYear()} Techo Traders. {t.footer}</p>
         <div className="flex justify-center gap-6 text-sm">
           <a href="https://www.facebook.com/share/17v3yMGC8U/?mibextid=wwXIfr" target="_blank">Facebook</a>
           <a href="https://chat.whatsapp.com/IMybu7FGZ9s428LfnPQ7lK" target="_blank">WhatsApp Community</a>
