@@ -83,17 +83,34 @@ export default function Home() {
       <section className="min-h-screen px-6 flex items-center bg-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <Slideshow images={yagiImages} />
+
           <div>
-            <h2 className="text-3xl font-semibold mb-4">{t.yagiTitle}</h2>
-            <p className="mb-6">
-              {t.yagiDesc}
+            <h2 className="text-3xl font-semibold mb-4">
+              {t.yagiTitle}
+            </h2>
+
+            <p className="mb-4">
+              {t.yagiDesc1}
             </p>
-            <a href={whatsappLink("I want to buy a Yagi Antenna")} className="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl shadow">
+
+            <p className="mb-6">
+              {t.yagiDesc2}
+            </p>
+
+            <p className="mb-6 font-medium">
+              {t.yagiDesc3}
+            </p>
+
+            <a
+              href={whatsappLink("I want to buy a Regular Yagi Antenna")}
+              className="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl shadow"
+            >
               {t.orderNow}
             </a>
           </div>
         </div>
       </section>
+
 
       {/* Section 3: Disk Yagi Antenna (Full Screen, mobile fix) */}
       <section className="min-h-screen px-6 bg-gray-50 flex items-center">
@@ -102,9 +119,15 @@ export default function Home() {
             <Slideshow images={diskYagiImages} />
           </div>
           <div className="md:order-1">
-            <h2 className="text-3xl font-semibold mb-4">{t.diskTitle}</h2>
+            <h2 className="text-3xl font-semibold mb-4">{t.diskYagiTitle}</h2>
             <p className="mb-6">
-              {t.diskDesc}
+              {t.diskYagiDesc1}
+            </p>
+            <p className="mb-6">
+              {t.diskYagiDesc2}
+            </p>
+            <p className="mb-6 font-medium">
+              {t.diskYagiDesc3}
             </p>
             <a href={whatsappLink("I want to buy a Disk Yagi Antenna")} className="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl shadow">
               {t.orderNow}
