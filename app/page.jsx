@@ -177,6 +177,7 @@ export default function Home() {
           <a href="https://www.facebook.com/share/17v3yMGC8U/?mibextid=wwXIfr" target="_blank">Facebook</a>
           <a href="https://chat.whatsapp.com/IMybu7FGZ9s428LfnPQ7lK" target="_blank">WhatsApp Community</a>
           <a href="https://wa.me/c/94706656007" target="_blank">WhatsApp Catalog</a>
+          <a href="/refund-return-policy" target="_blank">Return & Refund Policy</a>
         </div>
       </footer>
     </main>
